@@ -30,6 +30,14 @@ client.connect(err => {
             res.redirect('/');
         })
     })
+
+    app.get('/tasks', (req, res) => {
+        // collection.find({}).limit(5)
+        collection.find({})
+        .toArray( (err, documents) => {
+            res.send(documents);
+        })
+    })
 });
 
 
